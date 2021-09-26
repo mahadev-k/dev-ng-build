@@ -13,8 +13,10 @@ export class SortComponent implements OnInit {
 
   sortArr: SortData[] = [];
   canvasMap:Map<string,Chart> = new Map();
+  processingMap:Map<string,boolean> = new Map();
   
-  defaultDelayInExec:number = 30;
+  defaultDelayInExec:number = 50;
+  monitorTime:number = 50;
 
   constructor(private sortService: SortService) { }
 
@@ -39,7 +41,19 @@ export class SortComponent implements OnInit {
 
   }
 
-  mergeSort(id: string, sortArr: SortData[], timeInMills?:number) { 
+  setDelayInExec(timeInMills?:number):number{
+    
+    if(timeInMills){
+      this.monitorTime = timeInMills;
+      return timeInMills;
+    }
+
+    return this.defaultDelayInExec;
+  }
+
+  mergeSort(id: string, sortArr: SortData[], timeInMills?:number) {
+    
+    timeInMills = this.setDelayInExec(timeInMills);
 
    let response = this.sortService.mergeSort(sortArr, timeInMills?timeInMills:this.defaultDelayInExec)
                       .subscribe(
@@ -55,6 +69,8 @@ export class SortComponent implements OnInit {
 
   bubbleSort(id: string, sortArr: SortData[], timeInMills?:number) { 
 
+    timeInMills = this.setDelayInExec(timeInMills);
+
     let response = this.sortService.bubbleSort(sortArr, timeInMills?timeInMills:this.defaultDelayInExec)
                        .subscribe(
                          arr => {
@@ -67,7 +83,9 @@ export class SortComponent implements OnInit {
      this.sortMonitor(id, response);
   }
 
-  heapSort(id: string, sortArr: SortData[], timeInMills?:number) { 
+  heapSort(id: string, sortArr: SortData[], timeInMills?:number) {
+    
+    timeInMills = this.setDelayInExec(timeInMills);
 
     let response = this.sortService.heapSort(sortArr, timeInMills?timeInMills:this.defaultDelayInExec)
                        .subscribe(
@@ -84,22 +102,26 @@ export class SortComponent implements OnInit {
   sortMonitor(id:string, subscription:Subscription){
       
       setTimeout(() => {
-        console.log(subscription.closed);
+        //console.log(subscription.closed);
         this.sortService.getCurrentSortOrder()
         .subscribe(
           arr => {
             if(arr.length>0){
+
               this.plotChart(id, arr);
             }
             if(!subscription.closed){
+              this.processingMap.set(id,true);
               this.sortMonitor(id,subscription);
+            }else{
+              this.processingMap.set(id,false);
             }
           },
           error => {
             console.log("Error Occured");
           }
         );
-      }, 5000);
+      }, this.monitorTime);
   }
 
 
@@ -130,6 +152,9 @@ export class SortComponent implements OnInit {
                     }]
                   },
                   options: {
+                    animation: { 
+                        duration: 10
+                    },
                     scales: {
                       y: {
                         beginAtZero: true

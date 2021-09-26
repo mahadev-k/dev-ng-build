@@ -7,7 +7,14 @@
             <div class="card-title">
                 <div class="row">
                     <h2 class="col-sm-10">Merge Sort</h2>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="mergeSort(mergeSortEl.id,sortArr)">Sort</button>
+                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="mergeSort(mergeSortEl.id,sortArr)">
+                        <span
+                            *ngIf="processingMap.get(mergeSortEl.id) && processingMap.get(mergeSortEl.id) == true" 
+                            class="spinner-border spinner-border-sm"
+                            role="status" 
+                            aria-hidden="true"></span>
+                        Sort
+                    </button>
                 </div>
             </div>
             <div class="card-body bg-white">
@@ -21,7 +28,15 @@
             <div class="card-title">
                 <div class="row">
                     <h2 class="col-sm-10">Bubble Sort</h2>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr)">Sort</button>
+                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr)">
+                        <span 
+                            *ngIf="processingMap.get(bubbleSortEl.id) && processingMap.get(bubbleSortEl.id) == true" 
+                            class="spinner-border spinner-border-sm" 
+                            role="status" 
+                            aria-hidden="true">
+                        </span>
+                        Sort
+                    </button>
                 </div>
             </div>
             <div class="card-body bg-white">
@@ -35,7 +50,15 @@
             <div class="card-title">
                 <div class="row">
                     <h2 class="col-sm-10">Heap Sort</h2>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="heapSort(heapSortEl.id,sortArr)">Sort</button>
+                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="heapSort(heapSortEl.id,sortArr)">
+                        <span 
+                            *ngIf="processingMap.get(heapSortEl.id) && processingMap.get(heapSortEl.id) == true" 
+                            class="spinner-border spinner-border-sm" 
+                            role="status" 
+                            aria-hidden="true">
+                        </span>
+                        Sort
+                    </button>
                 </div>
             </div>
             <div class="card-body bg-white">

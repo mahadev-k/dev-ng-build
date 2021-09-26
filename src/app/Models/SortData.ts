@@ -18,3 +18,4 @@ export class SortData implements Node {
         this.color = backgroundColors[backgroundColors.length%data];
     }
 }
+
