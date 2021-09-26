@@ -11,20 +11,20 @@ export class SortService {
 
   constructor(private httpClient:HttpClient) { }
 
-  public getCurrentSortOrder():Observable<SortData[]>{
-    return this.httpClient.get<SortData[]>(Utility.algoservice_sort);
+  public getCurrentSortOrder(sortId:string):Observable<SortData[]>{
+    return this.httpClient.get<SortData[]>(Utility.algoservice_sort+"/"+sortId);
   }
 
-  public mergeSort(sortArr:SortData[], timeInMills:number):Observable<SortData[]>{
-    return this.httpClient.post<SortData[]>(Utility.algoservice_mergeSort+"/"+timeInMills, sortArr);
+  public mergeSort(sortArr:SortData[], timeInMills:number, sortId:string):Observable<SortData[]>{
+    return this.httpClient.post<SortData[]>(Utility.algoservice_mergeSort+"/"+timeInMills+"/"+sortId, sortArr);
   }
 
-  public bubbleSort(sortArr:SortData[], timeInMills:number):Observable<SortData[]>{
-    return this.httpClient.post<SortData[]>(Utility.algoservice_bubbleSort+"/"+timeInMills,sortArr);
+  public bubbleSort(sortArr:SortData[], timeInMills:number, sortId:string):Observable<SortData[]>{
+    return this.httpClient.post<SortData[]>(Utility.algoservice_bubbleSort+"/"+timeInMills+"/"+sortId,sortArr);
   }
 
-  public heapSort(sortArr:SortData[], timeInMills:number):Observable<SortData[]>{
-    return this.httpClient.post<SortData[]>(Utility.algoservice_heapSort+"/"+timeInMills,sortArr);
+  public heapSort(sortArr:SortData[], timeInMills:number, sortId:string):Observable<SortData[]>{
+    return this.httpClient.post<SortData[]>(Utility.algoservice_heapSort+"/"+timeInMills+"/"+sortId,sortArr);
   }
 
 }

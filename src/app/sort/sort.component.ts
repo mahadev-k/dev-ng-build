@@ -12,6 +12,7 @@ import { SortService } from './sort.service';
 export class SortComponent implements OnInit {
 
   sortArr: SortData[] = [];
+  sortMap:Map<string,SortData[]> = new Map();
   canvasMap:Map<string,Chart> = new Map();
   processingMap:Map<string,boolean> = new Map();
   
@@ -55,10 +56,15 @@ export class SortComponent implements OnInit {
     
     timeInMills = this.setDelayInExec(timeInMills);
 
-   let response = this.sortService.mergeSort(sortArr, timeInMills?timeInMills:this.defaultDelayInExec)
+    if(this.sortMap.get(id)){
+      sortArr = this.sortMap.get(id)??[];
+    }
+  
+    let response = this.sortService.mergeSort(sortArr, timeInMills, id)
                       .subscribe(
                         arr => {
                           this.plotChart(id, arr);
+                          this.sortMap.set(id, arr);
                         },
                         error => {
                           console.log("Error Occured");
@@ -71,10 +77,15 @@ export class SortComponent implements OnInit {
 
     timeInMills = this.setDelayInExec(timeInMills);
 
-    let response = this.sortService.bubbleSort(sortArr, timeInMills?timeInMills:this.defaultDelayInExec)
+    if(this.sortMap.get(id)){
+      sortArr = this.sortMap.get(id)??[];
+    }
+
+    let response = this.sortService.bubbleSort(sortArr, timeInMills, id)
                        .subscribe(
                          arr => {
                            this.plotChart(id, arr);
+                           this.sortMap.set(id, arr);
                          },
                          error => {
                            console.log("Error Occured");
@@ -87,10 +98,15 @@ export class SortComponent implements OnInit {
     
     timeInMills = this.setDelayInExec(timeInMills);
 
-    let response = this.sortService.heapSort(sortArr, timeInMills?timeInMills:this.defaultDelayInExec)
+    if(this.sortMap.get(id)){
+      sortArr = this.sortMap.get(id)??[];
+    }
+
+    let response = this.sortService.heapSort(sortArr, timeInMills, id)
                        .subscribe(
                          arr => {
                            this.plotChart(id, arr);
+                           this.sortMap.set(id, arr);
                          },
                          error => {
                            console.log("Error Occured");
@@ -103,10 +119,10 @@ export class SortComponent implements OnInit {
       
       setTimeout(() => {
         //console.log(subscription.closed);
-        this.sortService.getCurrentSortOrder()
+        this.sortService.getCurrentSortOrder(id)
         .subscribe(
           arr => {
-            if(arr.length>0){
+            if(arr && arr.length>0){
 
               this.plotChart(id, arr);
             }

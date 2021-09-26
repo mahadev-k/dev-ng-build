@@ -23,28 +23,6 @@
         </div>
         <!-- Merge Sort Ends -->
 
-        <!-- Bubble Sort Starts-->
-        <div class="card bg-transperent p-3 m-4">
-            <div class="card-title">
-                <div class="row">
-                    <h2 class="col-sm-10">Bubble Sort</h2>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr)">
-                        <span 
-                            *ngIf="processingMap.get(bubbleSortEl.id) && processingMap.get(bubbleSortEl.id) == true" 
-                            class="spinner-border spinner-border-sm" 
-                            role="status" 
-                            aria-hidden="true">
-                        </span>
-                        Sort
-                    </button>
-                </div>
-            </div>
-            <div class="card-body bg-white">
-                <canvas #bubbleSortEl id="bubbleSort" width="1000" height="200"></canvas>
-            </div>
-        </div>
-        <!-- Bubble Sort Ends -->
-
          <!-- Heap Sort Starts-->
          <div class="card bg-transperent p-3 m-4">
             <div class="card-title">
@@ -66,6 +44,28 @@
             </div>
         </div>
         <!-- Heap Sort Ends -->
+
+        <!-- Bubble Sort Starts-->
+        <div class="card bg-transperent p-3 m-4">
+            <div class="card-title">
+                <div class="row">
+                    <h2 class="col-sm-10">Bubble Sort</h2>
+                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr)">
+                        <span 
+                            *ngIf="processingMap.get(bubbleSortEl.id) && processingMap.get(bubbleSortEl.id) == true" 
+                            class="spinner-border spinner-border-sm" 
+                            role="status" 
+                            aria-hidden="true">
+                        </span>
+                        Sort
+                    </button>
+                </div>
+            </div>
+            <div class="card-body bg-white">
+                <canvas #bubbleSortEl id="bubbleSort" width="1000" height="200"></canvas>
+            </div>
+        </div>
+        <!-- Bubble Sort Ends -->
 
     </div>
 
