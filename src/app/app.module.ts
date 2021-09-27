@@ -8,6 +8,7 @@ import { SortComponent } from './sort/sort.component';
 import { HomeComponent } from './home/home.component';
 import { AlgorithmsComponent } from './algorithms/algorithms.component';
 import { AboutComponent } from './about/about.component';
+import { CreatorComponent } from './creator/creator.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AboutComponent } from './about/about.component';
     SortComponent,
     HomeComponent,
     AlgorithmsComponent,
-    AboutComponent
+    AboutComponent,
+    CreatorComponent
   ],
   imports: [
     BrowserModule,

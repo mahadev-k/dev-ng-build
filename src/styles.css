@@ -7,15 +7,35 @@
     max-width: 345px;
     min-height: 255px;
 }
-.img-container{
-    background-image: url(./assets/wp7441608-anime-moon-wallpapers.jpg);
-    width:100% !important;
+
+.card-md{
+    max-width: 500px;
+    min-height: 255px;
+}
+
+.card-lg{
+    max-width: 800px;
+    min-height: 255px;
+}
+
+body{
+    background-image: url(./assets/wp1817966-interstellar-wallpapers.jpg);
+    background-size: 50vw 100vh;
 }
 .bg-transperent{
-    background-color: rgba(255, 255, 255, .30) !important; 
+    background-color: rgba(252, 252, 252, 0.062) !important; 
 }
 .card:hover{
     transform: scale(1.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.about-cmp{
+    font-family: monospace;
+}
+
+.creator-cmp{
+    font-size: small;
+    line-height: 30px;
 }
