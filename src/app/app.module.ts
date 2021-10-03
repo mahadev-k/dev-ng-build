@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AlgorithmsComponent } from './algorithms/algorithms.component';
 import { AboutComponent } from './about/about.component';
 import { CreatorComponent } from './creator/creator.component';
+import { BinarySearchComponent } from './binary-search/binary-search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreatorComponent } from './creator/creator.component';
     HomeComponent,
     AlgorithmsComponent,
     AboutComponent,
-    CreatorComponent
+    CreatorComponent,
+    BinarySearchComponent
   ],
   imports: [
     BrowserModule,
