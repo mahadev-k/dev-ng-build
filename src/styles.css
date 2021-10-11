@@ -19,6 +19,12 @@
     max-height: 85vh;
     overflow: auto;
 }
+.card-xl{
+    max-width: 1075px;
+    min-height: 255px;
+    max-height: 85vh;
+    overflow: auto;
+}
 
 /* Scroll 5 */
 .sc5::-webkit-scrollbar {
@@ -37,8 +43,30 @@
 }
 
 body{
-    background-image: url(./assets/wp1817966-interstellar-wallpapers.jpg);
-    background-size: 50vw 100vh;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(29,9,121,1) 44%, rgba(20,0,255,1) 100%);
+    min-height: 100vh;
+}
+
+.custom-shape-divider-bottom-1633952039 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin-top: 50px;
+}
+
+.custom-shape-divider-bottom-1633952039 svg {
+    display: block;
+    width: calc(125% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1633952039 .shape-fill {
+    fill: #FFFFFF;
 }
 
 .code{
@@ -59,7 +87,8 @@ body{
 }
 
 .creator-cmp{
-    font-size: small;
+    font-family: monospace;
+    font-weight: 100;
     line-height: 30px;
 }
 
