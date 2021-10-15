@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 .card-md{
-    max-width: 470px;
+    max-width: 800px;
     min-height: 365px;
 }
 .card-sm{
@@ -8,16 +8,10 @@
     min-height: 255px;
 }
 
-.card-md{
-    max-width: 500px;
-    min-height: 255px;
-}
-
 .card-lg{
     max-width: 800px;
     min-height: 255px;
-    max-height: 85vh;
-    overflow: auto;
+    min-height: 85vh;
 }
 .card-xl{
     max-width: 1075px;
@@ -42,7 +36,7 @@
     box-shadow: rgba(0,0,0,.12) 0 3px 13px 1px;
 }
 
-body{
+app-root{
     background: rgb(2,0,36);
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(29,9,121,1) 44%, rgba(20,0,255,1) 100%);
     min-height: 100vh;
@@ -56,7 +50,7 @@ body{
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-    margin-top: 50px;
+    margin-top: auto;
 }
 
 .custom-shape-divider-bottom-1633952039 svg {
