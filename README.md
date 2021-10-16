@@ -29,10 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Project Details
 
-The project mainly houses the UI visualization of some of the computer science algorithms.
-
-## Sorting Algo
-
-<img width=”200" height=”200" src=”/src/assets/Sort_Algo.png" alt=”sort-banner">
-
-Checkout AlgoService repo for Algorithm codes.
+The project mainly houses the UI visualization of some of the computer science algorithms. The Algorithms are written in AlgoService Repo. Please do check out.. Happy Coding :)
