@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Project Details
+
+The project mainly houses the UI visualization of some of the computer science algorithms.
+
+## Sorting Algo
+
+<img width=”200" height=”200" src=”/src/assets/Sort_Algo.png" alt=”sort-banner">
+
+Checkout AlgoService repo for Algorithm codes.
