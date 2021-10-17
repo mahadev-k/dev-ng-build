@@ -6,9 +6,9 @@
         <div class="card bg-transperent p-3 m-4">
             <div class="card-title">
                 <div class="row">
-                    <h2 class="col-sm-6">Merge Sort</h2>
-                    <h6 class="col-sm-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="mergeSort(mergeSortEl.id,sortArr)">
+                    <h2 class="col-sm-6 col-xs-6">Merge Sort</h2>
+                    <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
+                    <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="mergeSort(mergeSortEl.id,sortArr)">
                         <span
                             *ngIf="processingMap.get(mergeSortEl.id) && processingMap.get(mergeSortEl.id) == true" 
                             class="spinner-border spinner-border-sm"
@@ -28,9 +28,9 @@
          <div class="card bg-transperent p-3 m-4">
             <div class="card-title">
                 <div class="row">
-                    <h2 class="col-sm-6">Heap Sort</h2>
-                    <h6 class="col-sm-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="heapSort(heapSortEl.id,sortArr)">
+                    <h2 class="col-sm-6 col-xs-6">Heap Sort</h2>
+                    <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
+                    <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="heapSort(heapSortEl.id,sortArr)">
                         <span 
                             *ngIf="processingMap.get(heapSortEl.id) && processingMap.get(heapSortEl.id) == true" 
                             class="spinner-border spinner-border-sm" 
@@ -51,9 +51,9 @@
         <div class="card bg-transperent p-3 m-4">
             <div class="card-title">
                 <div class="row">
-                    <h2 class="col-sm-6">Bubble Sort</h2>
-                    <h6 class="col-sm-3 align-self-center">Processing Delay : 5ms</h6>
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr,5)">
+                    <h2 class="col-sm-6 col-xs-6">Bubble Sort</h2>
+                    <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : 5ms</h6>
+                    <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr,5)">
                         <span 
                             *ngIf="processingMap.get(bubbleSortEl.id) && processingMap.get(bubbleSortEl.id) == true" 
                             class="spinner-border spinner-border-sm" 
