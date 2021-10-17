@@ -1,6 +1,6 @@
 export class Utility{
     
-    public static baseUri:string = "http://localhost:8080";
+    public static baseUri:string = "https://algoservice.herokuapp.com";
 
     //Services Uri
     public static algoServiceUri:string = Utility.baseUri+"/algoservice";
