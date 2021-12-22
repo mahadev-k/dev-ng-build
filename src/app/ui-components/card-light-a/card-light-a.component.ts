@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CardInfo } from 'src/app/Interfaces/CardInfo';
 
 @Component({
@@ -10,6 +10,7 @@ export class CardLightAComponent implements OnInit {
 
   @Input() cardInfo!:CardInfo;
   @Input() classes?:string;
+  @Output() routeTo: EventEmitter<any> = new EventEmitter();
 
   headerClass:string = "box ";
 
@@ -21,6 +22,10 @@ export class CardLightAComponent implements OnInit {
 
   addClasses = () => {
     this.headerClass += this.cardInfo.headerColor+" "+this.classes;
+  }
+
+  handleRouteTo = (e:Event) => {
+    this.routeTo.emit(e);
   }
 
 }

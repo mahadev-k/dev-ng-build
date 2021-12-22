@@ -5,9 +5,9 @@
     </p>
     <strong *ngIf="cardInfo.boldFooter" >"{{cardInfo.boldFooter}}"</strong>
     <hr>
-    <button 
+    <button *ngIf="cardInfo.buttonMessage"
         class="btn btn-secondary form-control mt-4"
-        [routerLink] = "['/sort']">
+        (click)="handleRouteTo($event)">
         {{cardInfo.buttonMessage}}
     </button>
 </div>

@@ -1,18 +1,24 @@
 <div class="container-fluid img-container d-flex justify-content-md-center">
-    <div class = "d-flex flex-column align-items-md-center justify-content-md-center">
-        <div class="d-flex align-items-md-center m-3">
-            <h2>Welcome to Dev-Build !!!</h2>
-        </div>
+    <div class = "container-fluid">
+        <div class="header mt-5 mb-5">
+            <h1>Algorithms, efficient computation</h1>
+            <h1>Powered by Creativity</h1>
+        
+            <p>A project that visualizes the computation of beautiful ideas</p>
+          </div>
         <div class="row1-container">
             <div class="col-sm-6">
                 <app-card-light-a 
                 [cardInfo]="sortAlgoInfo"
-                [classes]="'w-2'"></app-card-light-a>
+                [classes]="'w-50'"
+                (routeTo)="routeTo('sort')"></app-card-light-a>
             </div>
             <div class="col-sm-6">
-                <app-card-light-a [cardInfo] = "binarySearchInfo"></app-card-light-a>
+                <app-card-light-a 
+                [cardInfo] = "binarySearchInfo"
+                [classes]="'w-50'"
+                (routeTo)="routeTo('binarySearch')"></app-card-light-a>
             </div>
-
         </div>
     </div>
 </div>
