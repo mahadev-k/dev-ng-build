@@ -1,0 +1,13 @@
+<div [ngClass]="headerClass" >
+    <h2>{{cardInfo.title}}</h2>
+    <p>
+        {{cardInfo.body}}
+    </p>
+    <strong *ngIf="cardInfo.boldFooter" >"{{cardInfo.boldFooter}}"</strong>
+    <hr>
+    <button 
+        class="btn btn-secondary form-control mt-4"
+        [routerLink] = "['/sort']">
+        {{cardInfo.buttonMessage}}
+    </button>
+</div>

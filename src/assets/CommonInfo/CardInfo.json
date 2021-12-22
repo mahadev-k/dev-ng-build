@@ -1,0 +1,19 @@
+{
+    "cardInfos" : {
+        "sortInfo" : {
+            "title":"Sorting Algorithms",
+            "body":"Find out how sorting works with the help of a graph representing the realtime processing on data.",
+            "headerColor":"blue",
+            "boldFooter":"",
+            "buttonMessage":"Sorting Algorithms"
+        },
+        "binarySearchInfo" : {
+            "title" : "Binary Search",
+            "body" : "Find out how a binary search works.. Its very similar to how you find a word in the dictionary.",
+            "headerColor" : "blue",
+            "boldFooter" : "",
+            "buttonMessage":"Binary Search"
+        }
+        
+    }
+}

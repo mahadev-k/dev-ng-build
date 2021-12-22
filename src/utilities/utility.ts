@@ -1,3 +1,6 @@
+import { CardInfo } from 'src/app/Interfaces/CardInfo';
+import { default as cardInformations } from '../assets/CommonInfo/cardInfo.json';
+
 export class Utility{
     
     public static baseUri:string = "https://algoservice.herokuapp.com";
@@ -37,5 +40,13 @@ export class UtilityFunctions{
                 }
                 return color;
     };
+
+    static getSortCardInfo = ():CardInfo => {
+        return cardInformations.cardInfos.sortInfo;
+    }
+
+    static getBinarySearchCardInfo = ():CardInfo => {
+        return cardInformations.cardInfos.binarySearchInfo;
+    }
 
 }

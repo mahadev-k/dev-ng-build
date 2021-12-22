@@ -10,6 +10,7 @@ import { AlgorithmsComponent } from './algorithms/algorithms.component';
 import { AboutComponent } from './about/about.component';
 import { CreatorComponent } from './creator/creator.component';
 import { BinarySearchComponent } from './binary-search/binary-search.component';
+import { CardLightAComponent } from './ui-components/card-light-a/card-light-a.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BinarySearchComponent } from './binary-search/binary-search.component';
     AlgorithmsComponent,
     AboutComponent,
     CreatorComponent,
-    BinarySearchComponent
+    BinarySearchComponent,
+    CardLightAComponent
   ],
   imports: [
     BrowserModule,
