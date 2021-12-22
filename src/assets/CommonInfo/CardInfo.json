@@ -5,14 +5,16 @@
             "body":"Find out how sorting works with the help of a graph representing the realtime processing on data.",
             "headerColor":"blue",
             "boldFooter":"",
-            "buttonMessage":"Sorting Algorithms"
+            "buttonMessage":"Sorting Algorithms",
+            "displayIconPath":"../../../assets/Icons/icons8-front-sorting-48.png"
         },
         "binarySearchInfo" : {
             "title" : "Binary Search",
             "body" : "Find out how a binary search works.. Its very similar to how you find a word in the dictionary.",
-            "headerColor" : "blue",
+            "headerColor" : "orange",
             "boldFooter" : "",
-            "buttonMessage":"Binary Search"
+            "buttonMessage":"Binary Search",
+            "displayIconPath":"../../../assets/Icons/search.png"
         }
         
     }

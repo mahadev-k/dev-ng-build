@@ -4,7 +4,7 @@
         {{cardInfo.body}}
     </p>
     <strong *ngIf="cardInfo.boldFooter" >"{{cardInfo.boldFooter}}"</strong>
-    <hr>
+    <img *ngIf="cardInfo.displayIconPath" [src]="cardInfo.displayIconPath" alt="">
     <button *ngIf="cardInfo.buttonMessage"
         class="btn btn-secondary form-control mt-4"
         (click)="handleRouteTo($event)">

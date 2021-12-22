@@ -4,5 +4,6 @@ export interface CardInfo {
     boldFooter?:string;
     headerColor:string;
     buttonMessage:string;
+    displayIconPath?:string;
 }
     
