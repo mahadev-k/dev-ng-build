@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { SortData } from '../Models/SortData';
 import { SortService } from './sort.service';
+import { SortFunctionInput } from '../Interfaces/Common';
 
 @Component({
   selector: 'app-sort',
@@ -19,17 +20,18 @@ export class SortComponent implements OnInit {
   defaultDelayInExec:number = 50;
   monitorTime:number = 50;
 
-  constructor(private sortService: SortService) { }
+  constructor(private sortService: SortService, private elementRef:ElementRef) { }
 
   ngOnInit(): void {
 
     this.populateNodesRand(this.sortArr);
     Chart.register(...registerables);
+  }
+
+  ngAfterViewInit():void{
     this.plotChart("mergeSort", this.sortArr);
     this.plotChart("bubbleSort", this.sortArr);
     this.plotChart("heapSort", this.sortArr);
-
-
   }
 
   populateNodesRand(sortArr: SortData[]) {
@@ -52,8 +54,10 @@ export class SortComponent implements OnInit {
     return this.defaultDelayInExec;
   }
 
-  mergeSort(id: string, sortArr: SortData[], timeInMills?:number) {
+  mergeSort({id, sortArr, timeInMills}:SortFunctionInput):void {
     
+    // let id: string, sortArr: SortData[], timeInMills:number;
+
     timeInMills = this.setDelayInExec(timeInMills);
 
     if(this.sortMap.get(id)){
@@ -73,7 +77,7 @@ export class SortComponent implements OnInit {
     this.sortMonitor(id, response);
   }
 
-  bubbleSort(id: string, sortArr: SortData[], timeInMills?:number) { 
+  bubbleSort({id, sortArr, timeInMills}:SortFunctionInput) { 
 
     timeInMills = this.setDelayInExec(timeInMills);
 
@@ -94,7 +98,7 @@ export class SortComponent implements OnInit {
      this.sortMonitor(id, response);
   }
 
-  heapSort(id: string, sortArr: SortData[], timeInMills?:number) {
+  heapSort({id, sortArr, timeInMills}:SortFunctionInput) {
     
     timeInMills = this.setDelayInExec(timeInMills);
 
@@ -152,9 +156,10 @@ export class SortComponent implements OnInit {
       previousChart.destroy();
     }
 
+    let ctx = this.elementRef.nativeElement.querySelector("#"+id);
     
 
-    let chart = new Chart(id, {
+    let chart = new Chart(ctx, {
                   type: 'line',
                   data: {
                     labels: labels,

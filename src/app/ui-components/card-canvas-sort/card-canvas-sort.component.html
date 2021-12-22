@@ -1,0 +1,19 @@
+<div class="card p-3 m-4">
+    <div class="card-title">
+        <div class="row">
+            <h2 class="col-sm-6 col-xs-6">{{sortTitle}}</h2>
+            <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
+            <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="sortData(mergeSortEl.id,sortArr)">
+                <span
+                    *ngIf="processingMap.get(mergeSortEl.id) && processingMap.get(mergeSortEl.id) == true" 
+                    class="spinner-border spinner-border-sm"
+                    role="status" 
+                    aria-hidden="true"></span>
+                Sort
+            </button>
+        </div>
+    </div>
+    <div class="card-body bg-white">
+        <canvas #mergeSortEl [id]="canvasId" width="1000" height="200"></canvas>
+    </div>
+</div>
