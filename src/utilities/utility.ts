@@ -22,6 +22,9 @@ export class Utility{
     public static algoservice_binarySearchToLeft:string = Utility.algoservice_common+"/binarySearchToLeft";
     public static algoservice_binarySearch:string = Utility.algoservice_common+"/binarySearch";
 
+    //Favorable colors
+    public static bgColors:string[] = ["antiquewhite", "aqua", "chartreuse", "gold", "greenyellow", "lawngreen", "lime", "lightsteelblue"]
+
 
 
 }
@@ -40,6 +43,12 @@ export class UtilityFunctions{
                 }
                 return color;
     };
+
+    static getRandomBgColor = ():string => {
+        let colors = Utility.bgColors;
+        let number = UtilityFunctions.getRandomNumber(colors.length-1);
+        return colors[number];
+    }
 
     static getSortCardInfo = ():CardInfo => {
         return cardInformations.cardInfos.sortInfo;

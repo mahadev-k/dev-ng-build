@@ -12,6 +12,7 @@ import { CreatorComponent } from './creator/creator.component';
 import { BinarySearchComponent } from './binary-search/binary-search.component';
 import { CardLightAComponent } from './ui-components/card-light-a/card-light-a.component';
 import { CardCanvasSortComponent } from './ui-components/card-canvas-sort/card-canvas-sort.component';
+import { RandomBgColorDirective } from './directives/random-bg-color.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CardCanvasSortComponent } from './ui-components/card-canvas-sort/card-c
     CreatorComponent,
     BinarySearchComponent,
     CardLightAComponent,
-    CardCanvasSortComponent
+    CardCanvasSortComponent,
+    RandomBgColorDirective
   ],
   imports: [
     BrowserModule,
