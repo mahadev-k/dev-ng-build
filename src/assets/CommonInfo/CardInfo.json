@@ -15,6 +15,26 @@
             "boldFooter" : "",
             "buttonMessage":"Binary Search",
             "displayIconPath":"../../../assets/Icons/search.png"
+        },
+        "mergeSortInfo": {
+            "title" : "Merge Sort",
+            "body" : "Merge sort is a divide and conquer algorithm. An unsorted array will be divided and grouped into small units. The smallest group will be a group consisting of one element. Once they are divided to the smallest possible unit, we start merging the group with Sorting applied. Two sorted groups can be merged with a linear time complexity O(N). As we are dividing array into two halves every time until the smallest group is achieved this division can go up to ~ log2N. After the division we still have to visit all the elements so as to get them sorted and so the time complexity will be O(NlogN).",
+            "references":[
+                {
+                    "url":"https://www.geeksforgeeks.org/merge-sort/#:~:text=Like%20QuickSort%2C%20Merge%20Sort%20is%20a%20Divide%20and,%28%29%20function%20is%20used%20for%20merging%20two%20halves.",
+                    "displayText":"Gfg - Merge Sort"
+                }
+            ]
+        },
+        "bubbleSortInfo": {
+            "title" : "Bubble Sort",
+            "body" : "Bubble sort is an O(N^2) algorithm",
+            "references":[
+                {
+                    "url":"https://www.geeksforgeeks.org/merge-sort/#:~:text=Like%20QuickSort%2C%20Merge%20Sort%20is%20a%20Divide%20and,%28%29%20function%20is%20used%20for%20merging%20two%20halves.",
+                    "displayText":"Gfg - Merge Sort"
+                }
+            ]
         }
         
     }

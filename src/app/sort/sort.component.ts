@@ -1,9 +1,12 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { Subscription } from 'rxjs';
 import { SortData } from '../Models/SortData';
 import { SortService } from './sort.service';
 import { SortFunctionInput } from '../Interfaces/Common';
+import { CardInfo } from '../Interfaces/CardInfo';
+import { Utility, UtilityFunctions } from 'src/utilities/utility';
+import { CardCanvasSortComponent } from '../ui-components/card-canvas-sort/card-canvas-sort.component';
 
 @Component({
   selector: 'app-sort',
@@ -16,23 +19,55 @@ export class SortComponent implements OnInit {
   sortMap:Map<string,SortData[]> = new Map();
   canvasMap:Map<string,Chart> = new Map();
   processingMap:Map<string,boolean> = new Map();
-  
+  currentCardInfo!:CardInfo;
+  currentSortId!:any;
+  currentSortMonitorTimeout!:any;
+
   defaultDelayInExec:number = 50;
   monitorTime:number = 50;
-
-  constructor(private sortService: SortService, private elementRef:ElementRef) { }
+  sortIds:string[] = UtilityFunctions.getAllSortIds();
+  constructor(private sortService: SortService, 
+    private elementRef:ElementRef,
+    private changeDetector:ChangeDetectorRef) { }
 
   ngOnInit(): void {
 
     this.populateNodesRand(this.sortArr);
     Chart.register(...registerables);
+    this.updateCardInfo(Utility.mergeSortId);
+    this.currentSortId = Utility.mergeSortId;
   }
 
-  ngAfterViewInit():void{
-    this.plotChart("mergeSort", this.sortArr);
-    this.plotChart("bubbleSort", this.sortArr);
-    this.plotChart("heapSort", this.sortArr);
+  afterCanvasRender(id:string):void{
+    let ctx = this.elementRef.nativeElement.querySelector("#"+id);
+    if(ctx == null){
+      setTimeout(
+        () => this.afterCanvasRender(id), 
+        200
+      );
+    }else{
+      this.canvasMap.forEach(instance => instance.destroy());
+      this.plotChart(this.currentSortId, this.sortArr);
+    }
   }
+
+  updateCardInfo = (id:string) => {
+    this.currentCardInfo = UtilityFunctions.getSortInfo(id);
+    this.currentSortId = id;
+    this.afterCanvasRender(id);
+  }
+
+  sortFn = (event:SortFunctionInput) => {
+    switch(event.id){
+      case Utility.mergeSortId : return this.mergeSort(event);
+      case Utility.bubbleSortId : {
+        event.timeInMills = 30; return this.bubbleSort(event);
+      }
+      case Utility.heapSortId : return this.heapSort(event);
+    }
+  }
+
+
 
   populateNodesRand(sortArr: SortData[]) {
 
@@ -120,28 +155,34 @@ export class SortComponent implements OnInit {
   }
 
   sortMonitor(id:string, subscription:Subscription){
-      
-      setTimeout(() => {
-        //console.log(subscription.closed);
-        this.sortService.getCurrentSortOrder(id)
-        .subscribe(
-          arr => {
-            if(arr && arr.length>0){
 
-              this.plotChart(id, arr);
-            }
-            if(!subscription.closed){
-              this.processingMap.set(id,true);
-              this.sortMonitor(id,subscription);
-            }else{
-              this.processingMap.set(id,false);
-            }
-          },
-          error => {
-            console.log("Error Occured");
+    return setTimeout(() => {
+      //console.log(subscription.closed);
+     this.sortService.getCurrentSortOrder(id)
+      .subscribe(
+        arr => {
+          let ctx = this.elementRef.nativeElement.querySelector("#"+id);
+          if(ctx==null){
+            subscription.unsubscribe();
+            return;
           }
-        );
-      }, this.monitorTime);
+
+          if(arr && arr.length>0){
+
+            this.plotChart(id, arr);
+          }
+          if(!subscription.closed && ctx!=null){
+            this.processingMap.set(id,true);
+            this.sortMonitor(id,subscription);
+          }else{
+            this.processingMap.set(id,false);
+          }
+        },
+        error => {
+          console.log("Error Occured");
+        }
+      );
+    }, this.monitorTime);
   }
 
 
@@ -156,10 +197,8 @@ export class SortComponent implements OnInit {
       previousChart.destroy();
     }
 
-    let ctx = this.elementRef.nativeElement.querySelector("#"+id);
-    
 
-    let chart = new Chart(ctx, {
+    let chart = new Chart(id, {
                   type: 'line',
                   data: {
                     labels: labels,

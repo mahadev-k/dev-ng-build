@@ -25,6 +25,11 @@ export class Utility{
     //Favorable colors
     public static bgColors:string[] = ["antiquewhite", "aqua", "chartreuse", "gold", "greenyellow", "lawngreen", "lime", "lightsteelblue"]
 
+    //Sort Ids
+    public static mergeSortId:string = "mergeSort";
+    public static bubbleSortId:string = "bubbleSort";
+    public static heapSortId:string = "heapSort";
+
 
 
 }
@@ -56,6 +61,27 @@ export class UtilityFunctions{
 
     static getBinarySearchCardInfo = ():CardInfo => {
         return cardInformations.cardInfos.binarySearchInfo;
+    }
+
+    static getSortInfo = (id:string):CardInfo => {
+        switch(id){
+            case Utility.mergeSortId : {
+                return cardInformations.cardInfos.mergeSortInfo;
+            }
+            case Utility.bubbleSortId : return cardInformations.cardInfos.bubbleSortInfo;
+            default : {
+                return cardInformations.cardInfos.mergeSortInfo;
+            }
+        }
+        
+    }
+
+    static getAllSortIds = ():string[] => {
+        
+        let ids = [Utility.mergeSortId, Utility.heapSortId, Utility.bubbleSortId];
+
+        return ids;
+
     }
 
 }

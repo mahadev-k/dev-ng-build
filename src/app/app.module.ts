@@ -13,6 +13,8 @@ import { BinarySearchComponent } from './binary-search/binary-search.component';
 import { CardLightAComponent } from './ui-components/card-light-a/card-light-a.component';
 import { CardCanvasSortComponent } from './ui-components/card-canvas-sort/card-canvas-sort.component';
 import { RandomBgColorDirective } from './directives/random-bg-color.directive';
+import { SortCardComponent } from './ui-components/sort-card/sort-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { RandomBgColorDirective } from './directives/random-bg-color.directive';
     BinarySearchComponent,
     CardLightAComponent,
     CardCanvasSortComponent,
-    RandomBgColorDirective
+    RandomBgColorDirective,
+    SortCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

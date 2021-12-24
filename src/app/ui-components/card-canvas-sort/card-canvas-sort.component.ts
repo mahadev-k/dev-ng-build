@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ElementRef, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { SortData } from 'src/app/Models/SortData';
 
@@ -7,7 +7,7 @@ import { SortData } from 'src/app/Models/SortData';
   templateUrl: './card-canvas-sort.component.html',
   styleUrls: ['./card-canvas-sort.component.css']
 })
-export class CardCanvasSortComponent implements OnInit {
+export class CardCanvasSortComponent implements OnInit, AfterContentChecked {
 
 
   @Input() sortArr!:SortData[];
@@ -16,13 +16,19 @@ export class CardCanvasSortComponent implements OnInit {
   @Input() defaultDelayInExec!:number;
   @Input() sortTitle!:string;
   @Output() sort:EventEmitter<any> = new EventEmitter();
+  previousCanvasId?:string;
 
-  constructor() { }
+  constructor(private elementRef:ElementRef, private cd:ChangeDetectorRef) { }
+  
+  ngAfterContentChecked(): void {
+    this.cd.detectChanges();
+  }
 
   ngOnInit(): void {
     Chart.register(...registerables);
-
   }
+
+
 
   sortData = (id:string, sortArr:SortData[]) =>{
     this.sort.emit({id,sortArr});
