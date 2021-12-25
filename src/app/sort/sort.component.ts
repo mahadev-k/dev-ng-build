@@ -59,11 +59,13 @@ export class SortComponent implements OnInit {
 
   sortFn = (event:SortFunctionInput) => {
     switch(event.id){
-      case Utility.mergeSortId : return this.mergeSort(event);
+      case Utility.mergeSortId : 
+        return this.mergeSort(event);
       case Utility.bubbleSortId : {
-        event.timeInMills = 30; return this.bubbleSort(event);
+        event.timeInMills = 5; return this.bubbleSort(event);
       }
-      case Utility.heapSortId : return this.heapSort(event);
+      case Utility.heapSortId : 
+        return this.heapSort(event);
     }
   }
 
@@ -109,7 +111,7 @@ export class SortComponent implements OnInit {
                           console.log("Error Occured");
                         }
                       );
-    this.sortMonitor(id, response);
+    this.sortMonitor(id, response, this.monitorTime);
   }
 
   bubbleSort({id, sortArr, timeInMills}:SortFunctionInput) { 
@@ -127,10 +129,10 @@ export class SortComponent implements OnInit {
                            this.sortMap.set(id, arr);
                          },
                          error => {
-                           console.log("Error Occured");
+                           console.log("Error Occured", error);
                          }
                        );
-     this.sortMonitor(id, response);
+     this.sortMonitor(id, response, 10);
   }
 
   heapSort({id, sortArr, timeInMills}:SortFunctionInput) {
@@ -151,10 +153,10 @@ export class SortComponent implements OnInit {
                            console.log("Error Occured");
                          }
                        );
-     this.sortMonitor(id, response);
+     this.sortMonitor(id, response, this.monitorTime);
   }
 
-  sortMonitor(id:string, subscription:Subscription){
+  sortMonitor(id:string, subscription:Subscription, monitorTime:number){
 
     return setTimeout(() => {
       //console.log(subscription.closed);
@@ -171,9 +173,9 @@ export class SortComponent implements OnInit {
 
             this.plotChart(id, arr);
           }
-          if(!subscription.closed && ctx!=null){
+          if(!subscription.closed){
             this.processingMap.set(id,true);
-            this.sortMonitor(id,subscription);
+            this.sortMonitor(id,subscription, monitorTime);
           }else{
             this.processingMap.set(id,false);
           }
@@ -182,7 +184,7 @@ export class SortComponent implements OnInit {
           console.log("Error Occured");
         }
       );
-    }, this.monitorTime);
+    }, monitorTime);
   }
 
 

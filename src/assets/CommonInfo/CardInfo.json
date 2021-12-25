@@ -1,41 +1,54 @@
 {
-    "cardInfos" : {
-        "sortInfo" : {
-            "title":"Sorting Algorithms",
-            "body":"Find out how sorting works with the help of a graph representing the realtime processing on data.",
-            "headerColor":"blue",
-            "boldFooter":"",
-            "buttonMessage":"Sorting Algorithms",
-            "displayIconPath":"../../../assets/Icons/icons8-front-sorting-48.png"
+    "cardInfos": {
+        "sortInfo": {
+            "title": "Sorting Algorithms",
+            "body": "Find out how sorting works with the help of a graph representing the realtime processing on data.",
+            "headerColor": "blue",
+            "boldFooter": "",
+            "buttonMessage": "Sorting Algorithms",
+            "displayIconPath": "../../../assets/Icons/icons8-front-sorting-48.png"
         },
-        "binarySearchInfo" : {
-            "title" : "Binary Search",
-            "body" : "Find out how a binary search works.. Its very similar to how you find a word in the dictionary.",
-            "headerColor" : "orange",
-            "boldFooter" : "",
-            "buttonMessage":"Binary Search",
-            "displayIconPath":"../../../assets/Icons/search.png"
+        "binarySearchInfo": {
+            "title": "Binary Search",
+            "body": "Find out how a binary search works.. Its very similar to how you find a word in the dictionary.",
+            "headerColor": "orange",
+            "boldFooter": "",
+            "buttonMessage": "Binary Search",
+            "displayIconPath": "../../../assets/Icons/search.png"
         },
         "mergeSortInfo": {
-            "title" : "Merge Sort",
-            "body" : "Merge sort is a divide and conquer algorithm. An unsorted array will be divided and grouped into small units. The smallest group will be a group consisting of one element. Once they are divided to the smallest possible unit, we start merging the group with Sorting applied. Two sorted groups can be merged with a linear time complexity O(N). As we are dividing array into two halves every time until the smallest group is achieved this division can go up to ~ log2N. After the division we still have to visit all the elements so as to get them sorted and so the time complexity will be O(NlogN).",
-            "references":[
+            "title": "Merge Sort",
+            "body": "Merge sort is a divide and conquer algorithm. An unsorted array will be divided and grouped into small units. The smallest group will be a group consisting of one element. Once they are divided to the smallest possible unit, we start merging the group with Sorting applied. Two sorted groups can be merged with a linear time complexity O(N). As we are dividing array into two halves every time until the smallest group is achieved this division can go up to ~ log2N. After the division we still have to visit all the elements so as to get them sorted and so the time complexity will be O(NlogN).",
+            "references": [
                 {
-                    "url":"https://www.geeksforgeeks.org/merge-sort/#:~:text=Like%20QuickSort%2C%20Merge%20Sort%20is%20a%20Divide%20and,%28%29%20function%20is%20used%20for%20merging%20two%20halves.",
-                    "displayText":"Gfg - Merge Sort"
+                    "url": "https://www.geeksforgeeks.org/merge-sort/#:~:text=Like%20QuickSort%2C%20Merge%20Sort%20is%20a%20Divide%20and,%28%29%20function%20is%20used%20for%20merging%20two%20halves.",
+                    "displayText": "Gfg - Merge Sort"
                 }
             ]
         },
         "bubbleSortInfo": {
-            "title" : "Bubble Sort",
-            "body" : "Bubble sort is an O(N^2) algorithm",
-            "references":[
+            "title": "Bubble Sort",
+            "body": "Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements 'bubble' to the top of the list ~ Wikipedia. Bubble sort essentially means as wiki says swap the elements if they are in the wrong order. After the first Iteration the largest element will be at last position and now we have to sort n-1 elements. So after the second pass the second largest element will be at the second last positon leaving us n-3 elements to sort.. We can calculate the time complexity as n + n-1 + n-2 + n-3 + .... + 1 = n*(n+1)/2 ~ O(N^2)",
+            "references": [
                 {
-                    "url":"https://www.geeksforgeeks.org/merge-sort/#:~:text=Like%20QuickSort%2C%20Merge%20Sort%20is%20a%20Divide%20and,%28%29%20function%20is%20used%20for%20merging%20two%20halves.",
-                    "displayText":"Gfg - Merge Sort"
+                    "url": "https://en.wikipedia.org/wiki/Bubble_sort#:~:text=Bubble%20sort%2C%20sometimes%20referred%20to%20as%20sinking%20sort%2C,list%20is%20repeated%20until%20the%20list%20is%20sorted.",
+                    "displayText": "Wiki - Bubble Sort"
+                },
+                {
+                    "url": "https://www.geeksforgeeks.org/bubble-sort/",
+                    "displayText": "Gfg - Bubble Sort"
+                }
+            ]
+        },
+        "heapSortInfo": {
+            "title": "Heap Sort",
+            "body": "Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the minimum element and place the minimum element at the beginning. We repeat the same process for the remaining elements ~ Gfg. We prepare a binary heap such that each node will be greater than or equal to its child or grand children nodes. Now once the heap is prepared we have to swap the root node with the last element of the array ( as the largest element moves to the last index ). Second pass will swap the root with the second last index and so on.. Process the heap again until the heap empties. This requires visit of every element at least once and process heap.. This deduces time complexity to N*Process_Heap and the processing heap requires log2N time and so the time complexity reduces to O(Nlog2N).",
+            "references": [
+                {
+                    "url": "https://www.geeksforgeeks.org/heap-sort/",
+                    "displayText": "Gfg - Heap Sort"
                 }
             ]
         }
-        
     }
 }

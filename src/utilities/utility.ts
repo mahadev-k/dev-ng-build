@@ -65,10 +65,12 @@ export class UtilityFunctions{
 
     static getSortInfo = (id:string):CardInfo => {
         switch(id){
-            case Utility.mergeSortId : {
+            case Utility.mergeSortId : 
                 return cardInformations.cardInfos.mergeSortInfo;
-            }
-            case Utility.bubbleSortId : return cardInformations.cardInfos.bubbleSortInfo;
+            case Utility.bubbleSortId : 
+                return cardInformations.cardInfos.bubbleSortInfo;
+            case Utility.heapSortId :
+                return cardInformations.cardInfos.heapSortInfo;
             default : {
                 return cardInformations.cardInfos.mergeSortInfo;
             }
