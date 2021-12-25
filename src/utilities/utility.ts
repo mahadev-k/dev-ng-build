@@ -23,7 +23,7 @@ export class Utility{
     public static algoservice_binarySearch:string = Utility.algoservice_common+"/binarySearch";
 
     //Favorable colors
-    public static bgColors:string[] = ["antiquewhite", "aqua", "chartreuse", "gold", "greenyellow", "lawngreen", "lime", "lightsteelblue"]
+    public static bgColors:string[] = ["chartreuse", "gold", "greenyellow", "lawngreen", "lime"]
 
     //Sort Ids
     public static mergeSortId:string = "mergeSort";
