@@ -88,7 +88,7 @@ img {
     border-top: 3px solid var(--red);
 }
 .blue {
-    border-top: 3px solid var(--blue);
+    border-top: 3px solid var(--blue) !important;
 }
 .orange {
     border-top: 3px solid var(--orange);
@@ -130,7 +130,6 @@ h2 {
     border-radius: 5px !important;
     box-shadow: 0px 30px 40px -20px var(--grayishBlue);
     padding: 30px !important;
-    border: none !important;
 }
 
 .card-md{
