@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardInfo } from 'src/app/Interfaces/CardInfo';
 import { SortData } from 'src/app/Models/SortData';
+import { UtilityFunctions } from 'src/utilities/utility';
 
 @Component({
   selector: 'app-sort-card',
@@ -16,6 +17,8 @@ export class SortCardComponent implements OnInit {
   @Input() defaultDelayInExec!:number;
   @Input() sortTitle!:string;
   @Output() sort:EventEmitter<any> = new EventEmitter();
+
+  bgColor:string = UtilityFunctions.getRandomBrightBgColor();
 
   constructor() { }
 

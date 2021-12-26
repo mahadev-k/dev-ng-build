@@ -23,7 +23,8 @@ export class Utility{
     public static algoservice_binarySearch:string = Utility.algoservice_common+"/binarySearch";
 
     //Favorable colors
-    public static bgColors:string[] = ["chartreuse", "gold", "greenyellow", "lawngreen", "lime"]
+    public static brightBgColors:string[] = ["chartreuse", "gold", "greenyellow", "lawngreen", "lime"];
+    public static lightBgColors:string[] = ["cyan", "aqua"];
 
     //Sort Ids
     public static mergeSortId:string = "mergeSort";
@@ -49,8 +50,14 @@ export class UtilityFunctions{
                 return color;
     };
 
-    static getRandomBgColor = ():string => {
-        let colors = Utility.bgColors;
+    static getRandomlightBgColor = ():string => {
+        let colors = Utility.lightBgColors;
+        let number = UtilityFunctions.getRandomNumber(colors.length-1);
+        return colors[number];
+    }
+
+    static getRandomBrightBgColor = ():string => {
+        let colors = Utility.brightBgColors;
         let number = UtilityFunctions.getRandomNumber(colors.length-1);
         return colors[number];
     }

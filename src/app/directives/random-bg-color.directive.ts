@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { UtilityFunctions } from 'src/utilities/utility';
 
 @Directive({
@@ -6,6 +6,8 @@ import { UtilityFunctions } from 'src/utilities/utility';
 })
 export class RandomBgColorDirective implements OnInit {
 
+  @Input() bgColor!:string;
+  
   constructor(
     private elementRef: ElementRef, 
     private renderer: Renderer2
@@ -18,11 +20,10 @@ export class RandomBgColorDirective implements OnInit {
     }
 
     setRandomBgColor(){
-      let color = UtilityFunctions.getRandomBgColor();
       this.renderer.setStyle(
         this.elementRef.nativeElement,
         'background-color',
-        color
+        this.bgColor
       )
     }
 

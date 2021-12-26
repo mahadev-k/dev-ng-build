@@ -197,10 +197,6 @@ app-root{
     fill: #FFFFFF;
 }
 
-.code{
-    background: black!important;
-}
-
 .bg-transperent{
     background-color: rgba(252, 252, 252, 0.062) !important; 
 }
@@ -218,4 +214,8 @@ app-root{
     font-family: monospace;
     font-weight: 100;
     line-height: 30px;
+}
+
+.roboto{
+    font-family: monospace, 'Courier New', Courier;
 }
