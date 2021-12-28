@@ -10,6 +10,8 @@
     --weight1: 200;
     --weight2: 400;
     --weight3: 600;
+    --bg-color: rgb(1 6 69);
+    --ripple-color: #8090ec;
 }
 
 body {
@@ -31,7 +33,7 @@ h1.weight1 {
 
 }
 
-h1:last-of-type {
+h1.darkBlue:last-of-type {
     color: var(--varyDarkBlue);
 }
 

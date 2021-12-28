@@ -1,0 +1,6 @@
+.bg-color-rd-blue{
+    background-color: var(--bg-color);
+}
+.card p, .card ul li{
+    line-height: 2;
+}

@@ -15,6 +15,7 @@ import { CardCanvasSortComponent } from './ui-components/card-canvas-sort/card-c
 import { RandomBgColorDirective } from './directives/random-bg-color.directive';
 import { SortCardComponent } from './ui-components/sort-card/sort-card.component';
 import { FormsModule } from '@angular/forms';
+import { RippleDirective } from './directives/RippleDirective';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     CardLightAComponent,
     CardCanvasSortComponent,
     RandomBgColorDirective,
-    SortCardComponent
+    SortCardComponent,
+    RippleDirective
   ],
   imports: [
     BrowserModule,
