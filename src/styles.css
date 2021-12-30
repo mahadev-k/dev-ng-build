@@ -10,8 +10,10 @@
     --weight1: 200;
     --weight2: 400;
     --weight3: 600;
-    --bg-color: rgb(1 6 69);
-    --ripple-color: #8090ec;
+    --bg-shape-color:linear-gradient(120deg,  #343A4F, #0F1620) ;
+    --lightblue: #3D9DEA;
+    --darkblue: #4A4EEE;
+    --text-color: #D5E1EF;
 }
 
 body {
