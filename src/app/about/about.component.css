@@ -4,6 +4,17 @@
     margin:auto;
     text-align: center;
 }
+
+@media (max-width:600px) {
+    .about-section{
+        width: fit-content;
+    }
+    /* .btn{
+        width: 100px;
+        word-wrap: break-word;
+    } */
+}
+
 .button-holder{
     width: 50%;
     height: max-content;
@@ -25,12 +36,12 @@ h1,h4,h5 {
 }
 
 .tech-stack .row div:nth-child(even) button, .repos.row div:nth-child(odd) button,
-.credits.row div:nth-child(even) button{
+.credits.row div:nth-child(odd) button{
     margin-right: auto;
 }
 
 .tech-stack .row div:nth-child(odd) button, .repos.row div:nth-child(even) button,
-.credits.row div:nth-child(odd) button{
+.credits.row div:nth-child(even) button{
     margin-left: auto;
 }
 

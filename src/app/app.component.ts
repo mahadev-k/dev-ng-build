@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dev-ng-build';
-  isMenuCollapse:boolean = true;
+  isNavbarCollapsed:boolean = true;
 }

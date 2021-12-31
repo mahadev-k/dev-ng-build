@@ -16,6 +16,7 @@ import { RandomBgColorDirective } from './directives/random-bg-color.directive';
 import { SortCardComponent } from './ui-components/sort-card/sort-card.component';
 import { FormsModule } from '@angular/forms';
 import { RippleDirective } from './directives/RippleDirective';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RippleDirective } from './directives/RippleDirective';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
