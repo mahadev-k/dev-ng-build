@@ -17,6 +17,7 @@ import { SortCardComponent } from './ui-components/sort-card/sort-card.component
 import { FormsModule } from '@angular/forms';
 import { RippleDirective } from './directives/RippleDirective';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileCardAComponent } from './ui-components/profile-card-a/profile-card-a.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardCanvasSortComponent,
     RandomBgColorDirective,
     SortCardComponent,
-    RippleDirective
+    RippleDirective,
+    ProfileCardAComponent
   ],
   imports: [
     BrowserModule,
