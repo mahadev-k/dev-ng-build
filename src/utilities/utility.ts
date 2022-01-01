@@ -1,5 +1,5 @@
 import { CardInfo, ProfileCardInfo } from 'src/app/Interfaces/CardInfo';
-import { default as cardInformations } from '../assets/CommonInfo/cardInfo.json';
+import cardInformations from '../assets/CommonInfo/cardInfo.json';
 
 export class Utility{
     
