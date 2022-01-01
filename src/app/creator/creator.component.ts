@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityFunctions } from 'src/utilities/utility';
+import { ProfileCardInfo } from '../Interfaces/CardInfo';
 
 @Component({
   selector: 'app-creator',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class CreatorComponent implements OnInit {
 
   constructor() { }
+
+  profileCardInfos:ProfileCardInfo[] = UtilityFunctions.getAllCreators();
 
   ngOnInit(): void {
   }

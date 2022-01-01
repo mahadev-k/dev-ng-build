@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProfileCardInfo } from 'src/app/Interfaces/CardInfo';
 
 @Component({
   selector: 'app-profile-card-a',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCardAComponent implements OnInit {
 
+  @Input() profileCardInfo!:ProfileCardInfo;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.getClassForContact();
+  }
+
+  getClassForContact =()=>{
+    this.profileCardInfo.mail = "mailto:"+this.profileCardInfo.mail;
+    this.profileCardInfo.contacts.forEach(
+      e =>{
+        if(!e.contactFiFa){
+          e.contactFiFa = "fab fa-"+e.contactMethod;
+        }
+      }
+    )
   }
 
 }

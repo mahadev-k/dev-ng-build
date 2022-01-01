@@ -50,5 +50,31 @@
                 }
             ]
         }
-    }
+    },
+    "profileCardInfos":[
+        {
+            "name": "Mahadev K",
+            "mail": "mahadevkrishnan1996@gmail.com",
+            "about": "A software developer learning the art of programming 😎. Java, Spring and Angular are my companions. Feel free to reach out to collaborate.",
+            "imageUri":"../../../assets/Creators/Mahadev_K.jpg",
+            "contacts":[
+                {
+                    "contactUri":"https://github.com/mahadev-k",
+                    "contactMethod":"github-alt"
+                },
+                {
+                    "contactUri":"https://dev.to/mahadev_k",
+                    "contactMethod":"dev"
+                },
+                {
+                    "contactUri":"https://www.linkedin.com/in/mahadev-k-934520223/",
+                    "contactMethod":"linkedin-in"
+                },
+                {
+                    "contactUri":"https://www.hackerrank.com/mahadev_krishnan",
+                    "contactMethod":"hackerrank"
+                }
+            ]
+        }
+    ]
 }

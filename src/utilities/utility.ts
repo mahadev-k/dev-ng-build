@@ -1,4 +1,4 @@
-import { CardInfo } from 'src/app/Interfaces/CardInfo';
+import { CardInfo, ProfileCardInfo } from 'src/app/Interfaces/CardInfo';
 import { default as cardInformations } from '../assets/CommonInfo/cardInfo.json';
 
 export class Utility{
@@ -91,6 +91,10 @@ export class UtilityFunctions{
 
         return ids;
 
+    }
+
+    static getAllCreators = ():ProfileCardInfo[] => {
+        return cardInformations.profileCardInfos;
     }
 
 }
