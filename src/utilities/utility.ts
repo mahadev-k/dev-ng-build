@@ -1,5 +1,6 @@
 import { CardInfo, ProfileCardInfo } from 'src/app/Interfaces/CardInfo';
-import cardInformations from '../assets/CommonInfo/cardInfo.json';
+
+const cardInformations = require('../assets/CommonInfo/CardInfo.json');
 
 export class Utility{
     
