@@ -1,46 +1,24 @@
-<div class="container-fluid img-container d-flex justify-content-md-center text-white">
-    <div class = "d-flex flex-column align-items-md-center justify-content-md-center">
-        <div class="d-flex align-items-md-center m-3">
-            <h2>Welcome to Dev-Build !!!</h2>
-        </div>
-        <div class="d-flex justify-content-md-center m-4">
-            <div class="card bg-transperent card-sm p-3 m-2">
-                <div class="card-title">
-                    <h3>Sorting Algorithms</h3>
-                </div>
-                <div class="card-body">
-                    Let's take a ride to view a couple of Sorting Algorithms.
-                    Are you up for the ride.. And my favorite one is dividing 
-                    and conquering and you might know the name of the algo that
-                    I am saying and it is..
-                    <strong>"Merge Sort."</strong>
-                    <hr>
-                    <button 
-                        class="btn btn-secondary form-control mt-4"
-                        [routerLink] = "['/sort']">
-                        Sorting Algorithms
-                    </button>
-                </div>
+<div class="container-fluid img-container d-flex justify-content-md-center">
+    <div class = "container-fluid">
+        <div class="header mt-5 mb-5">
+            <h1 class="weight1">Algorithms, efficient computation</h1>
+            <h1 class="darkBlue">Powered by Creativity</h1>
+        
+            <p>A project that visualizes the computation of beautiful ideas</p>
+          </div>
+        <div class="row1-container">
+            <div class="col-sm-6">
+                <app-card-light-a 
+                [cardInfo]="sortAlgoInfo"
+                [classes]="''"
+                (routeTo)="routeTo('sort')"></app-card-light-a>
             </div>
-
-            <div class="card bg-transperent card-sm p-3 m-2">
-                <div class="card-title">
-                    <h3>Binary Search</h3>
-                </div>
-                <div class="card-body">
-                    Let's take a ride to view the Binary Search Algorithm.
-                    An algorithm so useful when you are searching for something when the data is ordered.
-                    I bet you know this algorithm and you had used it a lot, 
-                    <strong>"Searching a word in dictionary..:)"</strong>
-                    <hr>
-                    <button 
-                        class="btn btn-secondary form-control"
-                        [routerLink] = "['/binarySearch']">
-                        Binary Search
-                    </button>
-                </div>
+            <div class="col-sm-6">
+                <app-card-light-a 
+                [cardInfo] = "binarySearchInfo"
+                [classes]="''"
+                (routeTo)="routeTo('binarySearch')"></app-card-light-a>
             </div>
-
         </div>
     </div>
 </div>

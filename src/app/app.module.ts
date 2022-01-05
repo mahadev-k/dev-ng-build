@@ -10,6 +10,14 @@ import { AlgorithmsComponent } from './algorithms/algorithms.component';
 import { AboutComponent } from './about/about.component';
 import { CreatorComponent } from './creator/creator.component';
 import { BinarySearchComponent } from './binary-search/binary-search.component';
+import { CardLightAComponent } from './ui-components/card-light-a/card-light-a.component';
+import { CardCanvasSortComponent } from './ui-components/card-canvas-sort/card-canvas-sort.component';
+import { RandomBgColorDirective } from './directives/random-bg-color.directive';
+import { SortCardComponent } from './ui-components/sort-card/sort-card.component';
+import { FormsModule } from '@angular/forms';
+import { RippleDirective } from './directives/RippleDirective';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileCardAComponent } from './ui-components/profile-card-a/profile-card-a.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +27,20 @@ import { BinarySearchComponent } from './binary-search/binary-search.component';
     AlgorithmsComponent,
     AboutComponent,
     CreatorComponent,
-    BinarySearchComponent
+    BinarySearchComponent,
+    CardLightAComponent,
+    CardCanvasSortComponent,
+    RandomBgColorDirective,
+    SortCardComponent,
+    RippleDirective,
+    ProfileCardAComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

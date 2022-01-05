@@ -1,3 +1,7 @@
+import { CardInfo, ProfileCardInfo } from 'src/app/Interfaces/CardInfo';
+
+const cardInformations = require('../assets/CommonInfo/CardInfo.json');
+
 export class Utility{
     
     public static baseUri:string = "https://algoservice.herokuapp.com";
@@ -19,6 +23,15 @@ export class Utility{
     public static algoservice_binarySearchToLeft:string = Utility.algoservice_common+"/binarySearchToLeft";
     public static algoservice_binarySearch:string = Utility.algoservice_common+"/binarySearch";
 
+    //Favorable colors
+    public static brightBgColors:string[] = ["chartreuse", "gold", "greenyellow", "lawngreen", "lime"];
+    public static lightBgColors:string[] = ["cyan", "aqua"];
+
+    //Sort Ids
+    public static mergeSortId:string = "mergeSort";
+    public static bubbleSortId:string = "bubbleSort";
+    public static heapSortId:string = "heapSort";
+
 
 
 }
@@ -37,5 +50,52 @@ export class UtilityFunctions{
                 }
                 return color;
     };
+
+    static getRandomlightBgColor = ():string => {
+        let colors = Utility.lightBgColors;
+        let number = UtilityFunctions.getRandomNumber(colors.length-1);
+        return colors[number];
+    }
+
+    static getRandomBrightBgColor = ():string => {
+        let colors = Utility.brightBgColors;
+        let number = UtilityFunctions.getRandomNumber(colors.length-1);
+        return colors[number];
+    }
+
+    static getSortCardInfo = ():CardInfo => {
+        return cardInformations.cardInfos.sortInfo;
+    }
+
+    static getBinarySearchCardInfo = ():CardInfo => {
+        return cardInformations.cardInfos.binarySearchInfo;
+    }
+
+    static getSortInfo = (id:string):CardInfo => {
+        switch(id){
+            case Utility.mergeSortId : 
+                return cardInformations.cardInfos.mergeSortInfo;
+            case Utility.bubbleSortId : 
+                return cardInformations.cardInfos.bubbleSortInfo;
+            case Utility.heapSortId :
+                return cardInformations.cardInfos.heapSortInfo;
+            default : {
+                return cardInformations.cardInfos.mergeSortInfo;
+            }
+        }
+        
+    }
+
+    static getAllSortIds = ():string[] => {
+        
+        let ids = [Utility.mergeSortId, Utility.heapSortId, Utility.bubbleSortId];
+
+        return ids;
+
+    }
+
+    static getAllCreators = ():ProfileCardInfo[] => {
+        return cardInformations.profileCardInfos;
+    }
 
 }

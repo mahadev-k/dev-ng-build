@@ -1,0 +1,28 @@
+<div class="card row p-4 border-0 br-15" appRandomBgColor [bgColor]="bgColor">
+    <div class="row p-4">
+        <h3>{{cardInfo.title}}</h3>
+    </div>
+    <div class="row p-4">
+        <p>
+            {{cardInfo.body}}
+        </p>
+        <div *ngIf = "cardInfo.references && cardInfo.references.length > 0">
+            ##References
+            <div *ngFor="let ref of cardInfo.references">
+                <a [href]="ref.url">
+                    {{ref.displayText}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row p-4">
+        <!-- Card-Canvas-Sort Begins -->
+        <app-card-canvas-sort [sortArr]="sortArr"
+                [processingMap]="processingMap"
+                [defaultDelayInExec]="defaultDelayInExec"
+                [canvasId]="canvasId"
+                [sortTitle]="sortTitle"
+                (sort)="sortFn($event)"></app-card-canvas-sort>
+        <!-- Card-Canvas-Sort Ends -->
+    </div>
+</div>
