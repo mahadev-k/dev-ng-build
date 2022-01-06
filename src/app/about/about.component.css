@@ -1,0 +1,63 @@
+
+.about-section{
+    width: 70%;
+    margin:auto;
+    text-align: center;
+}
+
+@media (max-width:600px) {
+    .about-section{
+        width: fit-content;
+    }
+    /* .btn{
+        width: 100px;
+        word-wrap: break-word;
+    } */
+}
+
+.button-holder{
+    width: 50%;
+    height: max-content;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+button:hover{
+    color: white;
+}
+
+h1,h4,h5 {
+    letter-spacing: 10.2px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.tech-stack .row div:nth-child(even) button, .repos.row div:nth-child(odd) button,
+.credits.row div:nth-child(odd) button{
+    margin-right: auto;
+}
+
+.tech-stack .row div:nth-child(odd) button, .repos.row div:nth-child(even) button,
+.credits.row div:nth-child(even) button{
+    margin-left: auto;
+}
+
+
+.tech-stack .row div, .repos.row div,
+.credits.row div{
+    margin:1rem 0 1rem 0;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: linear-gradient(85deg, #61c7ef, #4833fb);
+    color: rgb(255, 255, 255);
+}

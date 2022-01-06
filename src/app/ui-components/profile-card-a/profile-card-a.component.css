@@ -1,0 +1,112 @@
+.profile-card-a{
+    font-family: "Dosis", sans-serif;
+}
+
+.card{
+    width: 451px;
+    height: max-content;
+    border-radius: 1rem !important;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    position: relative;
+    background-color: var(--bg-blue);
+    display: flex;
+    justify-content: center;
+    border-start-start-radius: 1rem;
+    border-start-end-radius: 1rem;
+}
+
+h3{
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.avatar{
+    z-index: 5;
+}
+
+.avatar::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-blue);
+    transform: skewY(8deg);
+    transform-origin: 0 100%;
+    z-index: -1;
+    border-start-start-radius: 1rem;
+}
+
+.padding-0{
+    padding: 0 !important;
+}
+
+header img{
+    transform: translateY(30px);
+    width: 150px;
+    height: 150px;
+}
+.body{
+    margin-top: 120px;
+    padding: 0 2rem 2rem;
+}
+
+.body h3::after{
+    content: "";
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    margin-top: 28px;
+    margin-left: -65px;
+    position: absolute;
+}
+
+.body .desc{
+    padding: 0 1rem 2rem;
+    text-align: center;
+    line-height: 1.5;
+    color: #777;
+}
+
+.body .contacts {
+    width: 200px;
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+}
+
+.body .contacts a {
+    display: block;
+    width: 33.333333%;
+    float: left;
+    text-align: center;
+    color: #c8c;
+}
+
+.body .contacts a svg{
+    font-size: x-large;
+}
+
+.footer.connect{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70px;
+    background-color: var(--bg-blue);
+    border-end-end-radius: 1rem;
+    border-end-start-radius: 1rem;
+}
+
+.footer.connect a{
+    background-color: transparent;
+    color:white;
+}

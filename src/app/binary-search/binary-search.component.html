@@ -1,104 +1,75 @@
-<div class="container-fluid img-container d-flex justify-content-md-center text-white">
+<div class="container-fluid binary-search-cmp roboto">
 
-    <div class="d-flex flex-column align-items-md-center justify-content-md-center">
-        <!-- Binary Search Starts -->
-        <div class="card bg-transperent p-3 m-4">
-            <div class="card-title">
-                <div class="row">
-                    <a class="col-sm-8"
-                        href="https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/minimum-radius-2-29df5cb3/?utm_source=header&utm_medium=search&utm_campaign=he-search">
-                        <h2>Minimum Radius (Binary Search) - Hackerearth</h2>
-                    </a>
-                    <input class="col-sm-2"
-                            #binarySearchToLeftInRef
-                            type="number"
-                            placeholder="Enter the weight to search"
-                    />
-                    <button class="btn btn-xs btn-primary col-sm-1 m-auto" 
-                            (click)="binarySearchToLeft(binarySearchToLeftEl.id, binaryEls, +binarySearchToLeftInRef.value)"
-                    >
-                        <span
-                            *ngIf="processingMap.get(binarySearchToLeftEl.id) && processingMap.get(binarySearchToLeftEl.id) == true" 
-                            class="spinner-border spinner-border-sm"
-                            role="status" 
-                            aria-hidden="true"></span>
-                        Search
-                    </button>
+    <div class="container mt-4">
+        <section class="binary-search-section">
+            <div class="row p-4">
+                <h1>Binary Search</h1>
+            </div>
+            <!-- Binary Search Starts -->
+            <div class="card p-4 border-0 br-15" appRandomBgColor [bgColor] = "bgColor">
+                <div class="card-title">
+                    <div class="row p-4">
+                        <a class="col-sm-8"
+                            href="https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/minimum-radius-2-29df5cb3/?utm_source=header&utm_medium=search&utm_campaign=he-search">
+                            <h2>Binary Search - A demonstration</h2>
+                        </a>
+                        <input class="col-sm-2"
+                                #binarySearchToLeftInRef
+                                type="number"
+                                placeholder="Enter the weight to search"
+                        />
+                        <button class="btn btn-xs btn-primary col-sm-1 m-auto" 
+                                (click)="binarySearchToLeft(binarySearchToLeftEl.id, binaryEls, +binarySearchToLeftInRef.value)"
+                        >
+                            <span
+                                *ngIf="processingMap.get(binarySearchToLeftEl.id) && processingMap.get(binarySearchToLeftEl.id) == true" 
+                                class="spinner-border spinner-border-sm"
+                                role="status" 
+                                aria-hidden="true"></span>
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="p-4">
+                        <p>
+                            Binary search compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found. If the search ends with the remaining half being empty, the target is not in the array ~ Wiki.
+                        </p>
+                        <p>
+                            Question :
+                            You are given two arrays X and Y of N elements denoting N points on the 2D plane. You are given another array A of N elements denoting the values associated with each point.
+                        </p>
+                    </div>
+                    <p class="p-4">
+                        The idea is about calculating the cartesian distance of every provided cordinate from (0,0).
+                        Sort the Els based on the cartesian distance. Once sorted calculate the total weight each circle will enclose.
+                        Then do the binary search.. you can see the code below.
+                        While calculating the cartesian distance beware of overflow use 64bit or 128bit representation for the calculation.
+                        Pseudo code is provided below but you can refer to the
+                        <a href="https://github.com/mahadev-k/algoservice/blob/main/src/main/java/org/devbuild/algoservice/common/CommonAlgoServiceImpl.java">
+                            Binary Search Implementation
+                        </a>
+                    </p>
+
+                    <!-- Error Section -->
+                    <div id="binarySearchToLeft_Error" class="alert-danger">
+
+                    </div>
+                    <!-- Error Section ends -->
+                    <div class="card m-4">
+                        <canvas #binarySearchToLeftEl class="bg-white" id="binarySearchToLeft" width="1000" height="200"></canvas>
+                    </div>
+
+                    <div class="code m-4">
+                        <pre class="language-java">
+                            <code class="language-java hljs" [innerHTML]="codeSnippet">
+                            </code>
+                        </pre>
+                    </div>
                 </div>
             </div>
-            <div class="card-body bg-white text-dark">
-                <br>
-                <br>
-                <p>
-                    The idea is about calculating the cartesian distance of every provided cordinate from (0,0).
-                    Sort the Els based on the cartesian distance. Once sorted calculate the total weight each circle will enclose.
-                    Then do the binary search.. you can see the code below.
-
-                    While calculating the cartesian distance beware of overflow use 64bit or 128bit representation for the calculation.
-                </p>
-                <br>
-                <br>
-
-                <!-- Error Section -->
-                <div id="binarySearchToLeft_Error" class="alert-danger">
-
-                </div>
-                <!-- Error Section ends -->
-
-                <canvas #binarySearchToLeftEl id="binarySearchToLeft" width="1000" height="200"></canvas>
-
-                <div class="code p-2">
-                    <code class="text-white" data-lang="javascript">
-
-                        <pre>
-                            constructor(x:number, y:number, weight:number){{'{'}}
-
-                                this.x = x;
-                                this.y = y;
-                                this.weight = weight;
-                                
-                                this.cartesianDistance = this.calculateCartesianDistance(x, y);
-                            {{'}'}}
-                        
-                            calculateCartesianDistance(x:number, y:number):number{{'{'}}
-                        
-                                return Math.sqrt(x*x + y*y);
-                            {{'}'}}
-                        </pre>
-
-                        <pre>
-                            binaryEls.sort((e1, e2) => e1.cartesianDistance - e2.cartesianDistance);
-                        </pre>
-
-                        <pre>
-                            let previousWeight:number = 0;
-                            for(let bEl of binaryEls){{'{'}}
-                                bEl.weight += previousWeight;
-                                previousWeight = bEl.weight;
-                            {{'}'}}
-                        </pre>
-
-                        <pre>
-                            while(start{{'<'}}end-1){{'{'}}
-
-                                int mid = (start+end)/2;
-                    
-                                if(commonEls.get(mid).getWeight() >= maxN){{'{'}}
-                                    end = mid;
-                                {{'}'}}else{{'{'}}
-                                    start = mid;
-                                {{'}'}}
-                    
-                                binarySearchIndex.put(id, commonEls.get(mid));
-                    
-                                Thread.sleep(timeInMills);
-                            {{'}'}}
-                        </pre>
-                    </code>
-                </div>
-            </div>
-        </div>
-        <!-- Binary Search Ends -->
+            <!-- Binary Search Ends -->
+        </section>
     </div>
 
 </div>

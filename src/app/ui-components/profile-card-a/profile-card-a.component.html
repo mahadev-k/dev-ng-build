@@ -1,0 +1,28 @@
+<section class="profile-card-a">
+    <div class="card m-4 padding-0 border-0 text-center">
+        <div class="header">
+            <header>
+                <div class="avatar">
+                    <img [src]="profileCardInfo.imageUri" 
+                    class="img-fluid rounded-circle" 
+                    alt="img">
+                </div>
+            </header>
+        </div>
+        <div class="body">
+            <h3>{{profileCardInfo.name}}</h3>
+            <div class="desc">
+                {{profileCardInfo.about}}
+            </div>
+            <div class="contacts d-flex justify-content-center">
+                <a [href]="profileCardInfo.mail"><i class="fa fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer connect">
+            <a *ngFor="let c of profileCardInfo.contacts" [href]="c.contactUri">
+                <i [class] = "c.contactFiFa"></i>
+            </a>
+        </div>
+    </div>
+
+</section>

@@ -1,74 +1,32 @@
-<div class="container-fluid img-container d-flex justify-content-md-center text-white">
+<div class="container-fluid sort-cmp">
 
-    <div class="d-flex flex-column align-items-md-center justify-content-md-center">
+    <div class="container mt-4">
 
-        <!-- Merge Sort Starts -->
-        <div class="card bg-transperent p-3 m-4">
-            <div class="card-title">
-                <div class="row">
-                    <h2 class="col-sm-6 col-xs-6">Merge Sort</h2>
-                    <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
-                    <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="mergeSort(mergeSortEl.id,sortArr)">
-                        <span
-                            *ngIf="processingMap.get(mergeSortEl.id) && processingMap.get(mergeSortEl.id) == true" 
-                            class="spinner-border spinner-border-sm"
-                            role="status" 
-                            aria-hidden="true"></span>
-                        Sort
-                    </button>
+        <section class="sortSection">
+            <div class="row p-4">
+                <div class="col-sm-10">
+                    <h1>Sorting Algorithms</h1>
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-select" #sortId (change)="updateCardInfo(sortId.value)">
+                        <option *ngFor = "let id of sortIds" [value]="id" >
+                            {{id | titlecase}}
+                        </option>
+                    </select>
                 </div>
             </div>
-            <div class="card-body bg-white">
-                <canvas #mergeSortEl id="mergeSort" width="1000" height="200"></canvas>
-            </div>
-        </div>
-        <!-- Merge Sort Ends -->
+            <app-sort-card
+                [cardInfo]="currentCardInfo"
+                [sortArr]="sortArr"
+                [processingMap]="processingMap"
+                [defaultDelayInExec]="monitorTime"
+                [canvasId]="currentSortId"
+                [sortTitle]="currentCardInfo.title"
+                (sort)="sortFn($event)"
+            >
+            </app-sort-card>
 
-         <!-- Heap Sort Starts-->
-         <div class="card bg-transperent p-3 m-4">
-            <div class="card-title">
-                <div class="row">
-                    <h2 class="col-sm-6 col-xs-6">Heap Sort</h2>
-                    <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : {{defaultDelayInExec}}ms</h6>
-                    <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="heapSort(heapSortEl.id,sortArr)">
-                        <span 
-                            *ngIf="processingMap.get(heapSortEl.id) && processingMap.get(heapSortEl.id) == true" 
-                            class="spinner-border spinner-border-sm" 
-                            role="status" 
-                            aria-hidden="true">
-                        </span>
-                        Sort
-                    </button>
-                </div>
-            </div>
-            <div class="card-body bg-white">
-                <canvas #heapSortEl id="heapSort" width="1000" height="200"></canvas>
-            </div>
-        </div>
-        <!-- Heap Sort Ends -->
-
-        <!-- Bubble Sort Starts-->
-        <div class="card bg-transperent p-3 m-4">
-            <div class="card-title">
-                <div class="row">
-                    <h2 class="col-sm-6 col-xs-6">Bubble Sort</h2>
-                    <h6 class="col-sm-3 col-xs-3 align-self-center">Processing Delay : 5ms</h6>
-                    <button class="btn btn-xs btn-primary col-sm-1 col-xs-1 m-auto" (click)="bubbleSort(bubbleSortEl.id,sortArr,5)">
-                        <span 
-                            *ngIf="processingMap.get(bubbleSortEl.id) && processingMap.get(bubbleSortEl.id) == true" 
-                            class="spinner-border spinner-border-sm" 
-                            role="status" 
-                            aria-hidden="true">
-                        </span>
-                        Sort
-                    </button>
-                </div>
-            </div>
-            <div class="card-body bg-white">
-                <canvas #bubbleSortEl id="bubbleSort" width="1000" height="200"></canvas>
-            </div>
-        </div>
-        <!-- Bubble Sort Ends -->
+        </section>
 
     </div>
 

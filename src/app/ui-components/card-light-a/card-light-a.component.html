@@ -1,0 +1,13 @@
+<div [ngClass]="headerClass" >
+    <h2>{{cardInfo.title}}</h2>
+    <p>
+        {{cardInfo.body}}
+    </p>
+    <strong *ngIf="cardInfo.boldFooter" >"{{cardInfo.boldFooter}}"</strong>
+    <img *ngIf="cardInfo.displayIconPath" [src]="cardInfo.displayIconPath" alt="">
+    <button *ngIf="cardInfo.buttonMessage"
+        class="btn btn-secondary form-control mt-4"
+        (click)="handleRouteTo($event)">
+        {{cardInfo.buttonMessage}}
+    </button>
+</div>
