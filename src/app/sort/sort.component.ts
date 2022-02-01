@@ -157,6 +157,8 @@ export class SortComponent implements OnInit {
   }
 
   sortMonitor(id:string, subscription:Subscription, monitorTime:number){
+    
+    this.processingMap.set(id,true);
 
     return setTimeout(() => {
       //console.log(subscription.closed);
@@ -174,7 +176,6 @@ export class SortComponent implements OnInit {
             this.plotChart(id, arr);
           }
           if(!subscription.closed){
-            this.processingMap.set(id,true);
             this.sortMonitor(id,subscription, monitorTime);
           }else{
             this.processingMap.set(id,false);
